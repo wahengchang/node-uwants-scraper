@@ -1,4 +1,8 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-(async() => { await require('./main')() })()
+(async() => {
+    require('./lib/db/init')
+    require('./lib/storage').init()
+    await require('./main')()
+})()
